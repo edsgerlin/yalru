@@ -28,7 +28,7 @@ export class LruCache<K, V> {
         throw Error("LruCache: cache is full but no node to remove.");
       }
       this.map.delete(firstNode.value);
-      this.list.removeFirst();
+      this.list.removeNode(firstNode);
     }
     const node = this.list.append(key);
     this.map.set(key, [value, node]);

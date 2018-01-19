@@ -45,31 +45,6 @@ export class DoublyLinkedList<T> {
     return node;
   }
 
-  public removeFirst(): void {
-    if (this.firstNode === undefined) {
-      return;
-    }
-    if (this.firstNode.nextNode !== undefined) {
-      this.firstNode.nextNode.previousNode = undefined;
-    }
-    const removedNode = this.firstNode;
-    this.firstNode = this.firstNode.nextNode;
-    removedNode.nextNode = undefined;
-    return;
-  }
-
-  public removeLast(): void {
-    if (this.lastNode === undefined) {
-      return;
-    }
-    if (this.lastNode.previousNode !== undefined) {
-      this.lastNode.previousNode.nextNode = undefined;
-    }
-    const removedNode = this.lastNode;
-    this.lastNode = this.lastNode.previousNode;
-    removedNode.previousNode = undefined;
-  }
-
   public removeNode(node: IDoublyLinkedNode<T>): void {
     if (node.previousNode !== undefined) {
       node.previousNode.nextNode = node.nextNode;
