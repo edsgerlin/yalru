@@ -1,5 +1,3 @@
-type Optional<T> = T | undefined;
-
 export interface IDoublyLinkedNode<T> {
   readonly value: T;
   previousNode?: IDoublyLinkedNode<T>;
@@ -11,11 +9,11 @@ export class DoublyLinkedList<T> {
 
   private lastNode?: IDoublyLinkedNode<T>;
 
-  public get first(): Optional<IDoublyLinkedNode<T>> {
+  public get first(): IDoublyLinkedNode<T> | undefined {
     return this.firstNode;
   }
 
-  public get last(): Optional<IDoublyLinkedNode<T>> {
+  public get last(): IDoublyLinkedNode<T> | undefined {
     return this.lastNode;
   }
 
