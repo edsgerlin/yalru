@@ -1,12 +1,12 @@
 type Optional<T> = T | undefined;
 
-interface IDoublyLinkedNode<T> {
+export interface IDoublyLinkedNode<T> {
   readonly value: T;
   previousNode?: IDoublyLinkedNode<T>;
   nextNode?: IDoublyLinkedNode<T>;
 }
 
-class DoublyLinkedList<T> {
+export class DoublyLinkedList<T> {
   private firstNode?: IDoublyLinkedNode<T>;
 
   private lastNode?: IDoublyLinkedNode<T>;

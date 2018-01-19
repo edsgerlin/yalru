@@ -1,4 +1,5 @@
-class LruCache<K, V> {
+import {DoublyLinkedList, IDoublyLinkedNode} from "./doublyLinkedList";
+export class LruCache<K, V> {
   public readonly capacity: number;
   private map: Map<K, [V, IDoublyLinkedNode<K>]> = new Map<K, [V, IDoublyLinkedNode<K>]>();
   private list: DoublyLinkedList<K> = new DoublyLinkedList<K>();
@@ -22,12 +23,12 @@ class LruCache<K, V> {
       this.map.delete(key);
     }
     if (this.isFull()) {
-      const lastNode = this.list.last;
-      if (lastNode === undefined) {
+      const firstNode = this.list.first;
+      if (firstNode === undefined) {
         throw Error("LruCache: cache is full but no node to remove.");
       }
-      this.map.delete(lastNode.value);
-      this.list.removeLast();
+      this.map.delete(firstNode.value);
+      this.list.removeFirst();
     }
     const node = this.list.append(key);
     this.map.set(key, [value, node]);
