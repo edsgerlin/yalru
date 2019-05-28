@@ -1,7 +1,5 @@
-import {
-  assert,
-} from "chai";
-import { LruCache } from "../lruCache";
+import { assert } from "chai";
+import { LruCache } from "../src/lruCache";
 describe("LruCache", () => {
   const CAPACITY = 16;
   const cache = new LruCache<number, number>(CAPACITY);
